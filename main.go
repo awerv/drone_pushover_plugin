@@ -1,10 +1,10 @@
 package main
 
 import (
-  "net/http"
-  "net/url"
-  "fmt"
-  "os"
+	"fmt"
+	"net/http"
+	"net/url"
+	"os"
 )
 
 func main() {
@@ -21,25 +21,24 @@ func main() {
 		fmt.Println("title must be supplied")
 		os.Exit(1)
 	}
-	if os.Getenv("PLUGIN_MESSGAE") == "" {
+	if os.Getenv("PLUGIN_MESSAGE") == "" {
 		fmt.Println("message must be supplied")
 		os.Exit(1)
 	}
 
-
 	resp, err := http.PostForm(
-	  "https://api.pushover.net/1/messages.json",
-	  url.Values{
-		"user": { os.Getenv("PLUGIN_USER") },
-		"token": { os.Getenv("PLUGIN_TOKEN") },
-		"title": { os.Getenv("PLUGIN_TITLE") },
-		"message": { os.Getenv("PLUGIN_MESSAGE") } })
+		"https://api.pushover.net/1/messages.json",
+		url.Values{
+			"user":    {os.Getenv("PLUGIN_USER")},
+			"token":   {os.Getenv("PLUGIN_TOKEN")},
+			"title":   {os.Getenv("PLUGIN_TITLE")},
+			"message": {os.Getenv("PLUGIN_MESSAGE")}})
 
 	/*
 		write proper formatting
 	*/
 
-	fmt.Println("[%s] %s", resp.Status, resp.Body)
+	fmt.Println(resp.Status)
 
 	if err != nil {
 		os.Exit(2)
