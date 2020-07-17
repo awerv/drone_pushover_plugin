@@ -38,9 +38,12 @@ func main() {
 		write proper formatting
 	*/
 
-	fmt.Println(resp.Status)
+	fmt.Print("[", resp.Status, "]")
 
 	if err != nil {
 		os.Exit(2)
+	} else {
+		fmt.Println(" message sent successfully")
 	}
+
 }

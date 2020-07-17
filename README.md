@@ -21,3 +21,5 @@ steps:
 ```
 
 It's recommended to supply the user key and the token via secrets.
+
+Check [this](https://pushover.net/api/subscriptions) for more information regarding creating a Pushover subscription.
